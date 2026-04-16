@@ -1,0 +1,11 @@
+.container{
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.line{
+    height: 0.1rem;
+    width: 100%;
+    background-color: var(--light-dark);
+    border-radius: 10rem;
+}

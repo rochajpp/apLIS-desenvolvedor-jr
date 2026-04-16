@@ -1,0 +1,19 @@
+import Ln from "../../UI/Ln"
+
+import styles from "./styles.module.css"
+
+function Medicos(){
+    return(
+        <section className={styles.main}>
+            <div className={styles.container}>
+                <h1>Médicos</h1>
+                <Ln />
+                <div className={styles.list}>
+
+                </div>
+            </div>
+        </section>
+    )
+}
+
+export default Medicos;

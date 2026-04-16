@@ -2,6 +2,8 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 import MainLayout from "./layouts/MainLayout"
 import Home from "./components/pages/Home"
+import Medicos from "./components/pages/Medicos"
+import Pacientes from "./components/pages/Pacientes"
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
         <Routes>
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/medicos" element={<Medicos />} />
+            <Route path="/pacientes" element={<Pacientes />} />
           </Route>
         </Routes>
       </Router>
