@@ -7,8 +7,14 @@ function Header(){
                 <img className={styles.logo} src="logo.png" />
 
                 <nav className={styles.links}>
-                    <a href="/medicos">Médicos</a>
-                    <a href="/pacientes">Pacientes</a>
+                    <a href="/medicos">
+                        <ion-icon name="pulse-outline"></ion-icon>
+                        Médicos
+                    </a>
+                    <a href="/pacientes">
+                        <ion-icon name="person-outline"></ion-icon>
+                        Pacientes
+                    </a>
                 </nav>
 
                 <span>Desenvolvido por João Paulo Rocha</span>
