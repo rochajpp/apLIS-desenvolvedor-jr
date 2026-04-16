@@ -1,0 +1,50 @@
+.main{
+    background-color: var(--primary);
+    padding: 2rem;
+    display: flex;
+    width: 20rem;
+    color: var(--light);
+
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 10rem;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.links a{
+    text-align: center;
+    width: 100%;
+    padding: 1rem 0;
+    color: var(--light);
+    text-decoration: none;
+    transition: 0.5s;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.links a:hover{
+    background-color: rgba(255, 255, 255, 0.14);
+}
+
+.main span{
+    text-align: center;
+}
