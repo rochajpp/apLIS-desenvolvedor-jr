@@ -52,3 +52,35 @@
 .main span{
     text-align: center;
 }
+
+@media(max-width: 600px){
+    .main{
+        width: 100%;
+    }
+
+    .container{
+        flex-direction: row;
+    }
+
+    .links{
+        flex-direction: row;
+        gap: 1rem;
+        width: fit-content;
+    }
+
+    .links a{
+        width: fit-content;
+    }
+
+    .links a p{
+        display: none;
+    }
+
+    .container span{
+        display: none;
+    }
+
+    .logo{
+        width: 7rem;
+    }
+}

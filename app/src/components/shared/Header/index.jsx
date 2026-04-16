@@ -9,11 +9,11 @@ function Header(){
                 <nav className={styles.links}>
                     <a href="/medicos">
                         <ion-icon name="pulse-outline"></ion-icon>
-                        Médicos
+                        <p>Médicos</p>
                     </a>
                     <a href="/pacientes">
                         <ion-icon name="person-outline"></ion-icon>
-                        Pacientes
+                        <p>Pacientes</p>
                     </a>
                 </nav>
 

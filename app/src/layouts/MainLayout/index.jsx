@@ -7,7 +7,7 @@ import styles from "./styles.module.css"
 function MainLayout(){
     return(
         <div className={styles.container}>
-            <Header />
+            <Header className={styles.header}/>
             <main className={styles.main}>
                 <Outlet />
             </main>
