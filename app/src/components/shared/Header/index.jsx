@@ -1,3 +1,5 @@
+import {NavLink} from 'react-router-dom'
+
 import styles from "./styles.module.css"
 
 function Header(){
@@ -7,14 +9,15 @@ function Header(){
                 <img className={styles.logo} src="logo.png" />
 
                 <nav className={styles.links}>
-                    <a href="/medicos">
+                    <NavLink to="/medicos" className={({isActive}) => isActive ? `${styles.link} ${styles.linkActive}` : styles.link} href="/medicos">
                         <ion-icon name="pulse-outline"></ion-icon>
                         <p>Médicos</p>
-                    </a>
-                    <a href="/pacientes">
+                    </NavLink>
+
+                    <NavLink to="/pacientes" className={({isActive}) => isActive ? `${styles.link} ${styles.linkActive}` : styles.link}  href="/pacientes">
                         <ion-icon name="person-outline"></ion-icon>
                         <p>Pacientes</p>
-                    </a>
+                    </NavLink>
                 </nav>
 
                 <span>Desenvolvido por João Paulo Rocha</span>

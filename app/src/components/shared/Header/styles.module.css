@@ -27,7 +27,7 @@
     width: 100%;
 }
 
-.links a{
+.link{
     text-align: center;
     width: 100%;
     padding: 1rem;
@@ -41,12 +41,17 @@
     font-size: 1.5rem;
 }
 
-.links a:hover{
+.link:hover{
     background-color: rgba(255, 255, 255, 0.14);
 }
 
-.links a ion-icon{
+.link ion-icon{
     font-size: 2rem;
+}
+
+.linkActive{
+    background-color: rgba(255, 255, 255, 0.14);
+
 }
 
 .main span{
@@ -68,11 +73,11 @@
         width: fit-content;
     }
 
-    .links a{
+    .link{
         width: fit-content;
     }
 
-    .links a p{
+    .link p{
         display: none;
     }
 
