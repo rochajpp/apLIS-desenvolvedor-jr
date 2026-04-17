@@ -8,6 +8,8 @@
     background: url("background.png") center no-repeat;
     background-size: cover;
     box-shadow: 1px 1px 10px rgb(0, 0, 0);
+    position: fixed;
+    height: 100%;   
 }
 
 .container{
@@ -39,6 +41,7 @@
     .main{
         width: 100%;
         padding: 1rem;
+        height: initial;
     }
 
     .container{
