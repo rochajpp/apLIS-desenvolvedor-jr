@@ -3,6 +3,7 @@ module.exports.getAll = async (app, req, res) => {
         const context = app.config.db_config;
         const Pacientes = new app.src.models.Pacientes(context);
         const response = await Pacientes.getAll();
+        console.log(response);
         res.status(200).json(response);
         return;
     } catch(err) {
@@ -24,4 +25,5 @@ module.exports.add = async (app, req, res) => {
         return;
     }
 }
+
 

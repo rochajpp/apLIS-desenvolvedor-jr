@@ -23,6 +23,10 @@
     height: 34rem;
 }
 
+.open .title ion-icon{
+    transform: rotate(180deg);
+}
+
 .title{
     padding: 2rem;
     display: flex;

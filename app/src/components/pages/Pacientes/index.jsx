@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { getAll } from "../../../services/pacientes_service"
 
 import Ln from "../../UI/Ln"
 
@@ -10,6 +11,7 @@ function Pacientes() {
     const [card, setCard] = useState("");
     const [cpf, setCpf] = useState("");
     const [date, setDate] = useState("");
+    const [patients, setPatients] = useState([])
 
     function add(e) {
         e.preventDefault();
@@ -19,6 +21,16 @@ function Pacientes() {
         console.log(cpf);
         console.log(date);
     }
+
+    async function init() {
+        const data = await getAll();
+        setPatients(data);
+    }
+
+
+    useEffect(() => {
+        init();
+    }, [])
 
 
     return (
@@ -67,74 +79,30 @@ function Pacientes() {
 
                     <div className={styles.list}>
                         <h2>Pacientes</h2>
-                        <div className={styles.patient}>
-                            <div className={styles.identity}>
-                                <h2>João Paulo</h2>
-                                <p>222.222.222-22</p>
-                            </div>
+                        {patients.map((patient) => (
+                            <div key={patient.Id} className={styles.patient}>
+                                <div className={styles.identity}>
+                                    <h2>{patient.Nome}</h2>
+                                    <p>{patient.CPF}</p>
+                                </div>
 
-                            <div className={styles.details}>
-                                <p>
-                                    <strong>Carteirinha</strong>
-                                    2222
-                                </p>
-                                <p>
-                                    <strong>Nascimento</strong>
-                                    25/07/2003
-                                </p>
-                            </div>
+                                <div className={styles.details}>
+                                    <p>
+                                        <strong>Carteirinha</strong>
+                                        {patient.Carteirinha}
+                                    </p>
+                                    <p>
+                                        <strong>Nascimento</strong>
+                                        {patient.DataNascimento}
+                                    </p>
+                                </div>
 
-                            <div className={styles.actions}>
-                                <button><ion-icon name="create-outline"></ion-icon></button>
-                                <button><ion-icon name="trash-outline"></ion-icon></button>
+                                <div className={styles.actions}>
+                                    <button><ion-icon name="create-outline"></ion-icon></button>
+                                    <button><ion-icon name="trash-outline"></ion-icon></button>
+                                </div>
                             </div>
-                        </div>
-
-                        <div className={styles.patient}>
-                            <div className={styles.identity}>
-                                <h2>João Paulo</h2>
-                                <p>222.222.222-22</p>
-                            </div>
-
-                            <div className={styles.details}>
-                                <p>
-                                    <strong>Carteirinha</strong>
-                                    2222
-                                </p>
-                                <p>
-                                    <strong>Nascimento</strong>
-                                    25/07/2003
-                                </p>
-                            </div>
-
-                            <div className={styles.actions}>
-                                <button><ion-icon name="create-outline"></ion-icon></button>
-                                <button><ion-icon name="trash-outline"></ion-icon></button>
-                            </div>
-                        </div>
-
-                        <div className={styles.patient}>
-                            <div className={styles.identity}>
-                                <h2>João Paulo</h2>
-                                <p>222.222.222-22</p>
-                            </div>
-
-                            <div className={styles.details}>
-                                <p>
-                                    <strong>Carteirinha</strong>
-                                    2222
-                                </p>
-                                <p>
-                                    <strong>Nascimento</strong>
-                                    25/07/2003
-                                </p>
-                            </div>
-
-                            <div className={styles.actions}>
-                                <button><ion-icon name="create-outline"></ion-icon></button>
-                                <button><ion-icon name="trash-outline"></ion-icon></button>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
