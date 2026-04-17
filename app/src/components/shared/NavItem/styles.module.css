@@ -1,0 +1,39 @@
+.main {
+    text-align: center;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    color: var(--light);
+    text-decoration: none;
+    transition: 0.5s;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgba(255, 255, 255, 0.125);
+    font-weight: bold;
+}
+
+.main:hover {
+    opacity: 70%;
+}
+
+.main ion-icon {
+    font-size: 1.8rem;
+}
+
+.active {
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+@media(max-width: 600px) {
+    .main {
+        width: fit-content;
+        padding: 0.5rem;
+        border-radius: 100rem;
+    }
+
+    .main p {
+        display: none;
+    }
+}
