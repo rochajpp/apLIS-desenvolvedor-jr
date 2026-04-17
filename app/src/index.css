@@ -6,8 +6,9 @@
 
 :root{
   --primary: #2E3F6E;
+  --secondary: #e8be41; 
   --dark: rgb(46, 46, 46);
-  --light: white;
+  --light: #F5F7FA;
   --light-dark: rgba(0, 0, 0, 0.05);
 }
 

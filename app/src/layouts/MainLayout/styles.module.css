@@ -6,6 +6,7 @@
 .main{
     flex: 1;
     display: flex;
+    background-color: var(--light);
 }
 
 @media(max-width: 600px){

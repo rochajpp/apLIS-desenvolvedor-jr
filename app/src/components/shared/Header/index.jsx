@@ -19,8 +19,6 @@ function Header(){
                         <p>Pacientes</p>
                     </NavLink>
                 </nav>
-
-                <span>Desenvolvido por João Paulo Rocha</span>
             </div>
         </header>
     )
