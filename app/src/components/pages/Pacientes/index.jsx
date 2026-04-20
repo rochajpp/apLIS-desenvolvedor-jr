@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getAll } from "../../../services/pacientes_service"
+import { getAll, add } from "../../../services/pacientes_service"
 
 import Ln from "../../UI/Ln"
 import Table from "../../shared/Table"
@@ -14,18 +14,33 @@ function Pacientes() {
     const [date, setDate] = useState("");
     const [patients, setPatients] = useState([])
 
-    function add(e) {
+    async function submit(e) {
         e.preventDefault();
 
-        console.log(name);
-        console.log(card);
-        console.log(cpf);
-        console.log(date);
+        const data = {
+            nome: name,
+            dataNascimento: date,
+            carteirinha: card,
+            cpf: cpf
+        }
+
+        const res = await add(data);
+
+        if(res.status != 200){
+            
+        }
+
+        const patients = await getAll();
+        setPatients(patients.data);
+        setName("");
+        setDate("");
+        setCpf("");
+        setCard("");
     }
 
     async function init() {
-        const data = await getAll();
-        setPatients(data);
+        const res = await getAll();
+        setPatients(res.data);
     }
 
 
@@ -49,7 +64,7 @@ function Pacientes() {
                             <h2>Novo paciente</h2>
                             <ion-icon name="chevron-down-outline"></ion-icon>
                         </div>
-                        <form onSubmit={add}>
+                        <form onSubmit={submit}>
                             <div className={styles.inputArea}>
                                 <label>Nome:</label>
                                 <input onChange={(e) => setName(e.target.value)} placeholder="Insira o nome do paciente" required />
