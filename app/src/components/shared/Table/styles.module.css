@@ -1,0 +1,39 @@
+.container{
+    overflow-x: auto;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.04);
+}
+
+.table thead{
+    background-color: #f8f9fc;
+}
+
+.table thead th{
+    text-align: left;
+    padding: 2rem;
+}
+
+.table tbody tr{
+    transition: 0.5s;
+}
+
+.table tbody tr:hover{
+    background-color: #fafbff
+}
+
+.table td{
+    padding: 2rem;
+    border-bottom: 1px solid #eeeeee;
+    vertical-align: middle;
+}
+

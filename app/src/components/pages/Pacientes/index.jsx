@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { getAll } from "../../../services/pacientes_service"
 
 import Ln from "../../UI/Ln"
+import Table from "../../shared/Table"
 
 import styles from "./styles.module.css"
 
@@ -79,30 +80,33 @@ function Pacientes() {
 
                     <div className={styles.list}>
                         <h2>Pacientes</h2>
-                        {patients.map((patient) => (
-                            <div key={patient.Id} className={styles.patient}>
-                                <div className={styles.identity}>
-                                    <h2>{patient.Nome}</h2>
-                                    <p>{patient.CPF}</p>
-                                </div>
+                        <Table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>CPF</th>
+                                    <th>Carteirinha</th>
+                                    <th>Data Nascimento</th>
+                                </tr>
+                            </thead>
 
-                                <div className={styles.details}>
-                                    <p>
-                                        <strong>Carteirinha</strong>
-                                        {patient.Carteirinha}
-                                    </p>
-                                    <p>
-                                        <strong>Nascimento</strong>
-                                        {patient.DataNascimento}
-                                    </p>
-                                </div>
+                            <tbody>
+                                {patients.map((patient) => (
+                                    <tr key={patient.Id}>
+                                        <td>{patient.Id}</td>
+                                        <td>{patient.Nome}</td>
+                                        <td>{patient.CPF}</td>
+                                        <td>{patient.Carteirinha}</td>
+                                        <td>{(() => {
+                                            const date = new Date(patient.DataNascimento);
+                                            return date.toLocaleDateString('pt-BR');
+                                        })()}   </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
 
-                                <div className={styles.actions}>
-                                    <button><ion-icon name="create-outline"></ion-icon></button>
-                                    <button><ion-icon name="trash-outline"></ion-icon></button>
-                                </div>
-                            </div>
-                        ))}
                     </div>
                 </div>
             </div>
