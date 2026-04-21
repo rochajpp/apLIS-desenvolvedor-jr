@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getAll, add } from "../../../services/pacientes_service"
+import { getAll, add } from "../../../services/patients_service"
 
 import Ln from "../../UI/Ln"
 import Table from "../../shared/Table"
