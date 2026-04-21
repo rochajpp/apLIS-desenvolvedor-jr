@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import styles from "./styles.module.css"
 
-function Notification({ title, message, type }) {
+function Notification({ title, message, type, onClose }) {
 
     const [open, setOpen] = useState(false);
 
@@ -13,7 +13,13 @@ function Notification({ title, message, type }) {
 
         setTimeout(() => {
             main.style.right = "-100%";
-        }, 5000)
+            setTimeout(() => {
+                onClose();
+            }, 1000);
+
+        }, 5000);
+
+
     }, [])
 
 

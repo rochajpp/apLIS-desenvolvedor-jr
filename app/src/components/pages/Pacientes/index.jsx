@@ -3,6 +3,7 @@ import { getAll, add } from "../../../services/pacientes_service"
 
 import Ln from "../../UI/Ln"
 import Table from "../../shared/Table"
+import Notification from "../../shared/Notification"
 
 import styles from "./styles.module.css"
 
@@ -12,7 +13,9 @@ function Pacientes() {
     const [card, setCard] = useState("");
     const [cpf, setCpf] = useState("");
     const [date, setDate] = useState("");
-    const [patients, setPatients] = useState([])
+    const [patients, setPatients] = useState([]);
+    const [notification, setNotification] = useState(null);
+
 
     async function submit(e) {
         e.preventDefault();
@@ -27,7 +30,13 @@ function Pacientes() {
         const res = await add(data);
 
         if(res.status != 200){
-            
+            setNotification({
+                title: "Erro",
+                message: res.data.msg,
+                type: 2
+            })
+
+            return;
         }
 
         const patients = await getAll();
@@ -36,6 +45,11 @@ function Pacientes() {
         setDate("");
         setCpf("");
         setCard("");
+        setNotification({
+            title: "Sucesso",
+            message: res.data.msg,
+            type: "1"
+        });
     }
 
     async function init() {
@@ -51,6 +65,7 @@ function Pacientes() {
 
     return (
         <section className={styles.main}>
+            {notification && <Notification title={notification.title} message={notification.message} type={notification.type} onClose={() => setNotification(null)}/>}
             <div className={styles.container}>
                 <div className={styles.header}>
                     <h1>Pacientes</h1>
@@ -67,24 +82,24 @@ function Pacientes() {
                         <form onSubmit={submit}>
                             <div className={styles.inputArea}>
                                 <label>Nome:</label>
-                                <input onChange={(e) => setName(e.target.value)} placeholder="Insira o nome do paciente" required />
+                                <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Insira o nome do paciente" required />
                             </div>
 
                             <div className={styles.detailsInput}>
                                 <div className={styles.inputArea}>
                                     <label>Carteirinha:</label>
-                                    <input onChange={(e) => setCard(e.target.value)} placeholder="Insira o número da carteirinha do paciente" required />
+                                    <input value={card} onChange={(e) => setCard(e.target.value)} placeholder="Insira o número da carteirinha do paciente" required />
                                 </div>
 
                                 <div className={styles.inputArea}>
                                     <label>CPF:</label>
-                                    <input onChange={(e) => setCpf(e.target.value)} placeholder="Insira o CPF do paciente" required />
+                                    <input value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="Insira o CPF do paciente" required />
                                 </div>
                             </div>
 
                             <div className={styles.inputArea}>
                                 <label>Data de Nascimento:</label>
-                                <input onChange={(e) => setDate(e.target.value)} type="date" required />
+                                <input value={date} onChange={(e) => setDate(e.target.value)} type="date" required />
                             </div>
 
                             <button className={styles.addButton}>Criar</button>
