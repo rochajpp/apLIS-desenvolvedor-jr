@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import {getAll} from "../../../services/doctors_service"
 
 import Ln from "../../UI/Ln"
 import Table from "../../shared/Table"
@@ -17,6 +18,15 @@ function Medicos(){
     async function submit(){
         
     }
+
+    async function init(){
+        const res = await getAll();
+        setDoctors(res.data);
+    }
+
+    useEffect(() => {
+        init();
+    }, [])
 
     return(
         <section className={styles.main}>

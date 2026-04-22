@@ -1,4 +1,4 @@
-import api from "../api/config"
+import {apiPatients as api} from "../api/config"
 
 export const getAll = async() => {
     const response = await api.get("/pacientes");

@@ -1,4 +1,10 @@
 <?php
+
+// Configurando CORS
+header("Access-Control-Allow-Origin: *");
+
+
+
 require_once './config/DbConfig.php';
 require_once './controllers/MedicoController.php';
 
