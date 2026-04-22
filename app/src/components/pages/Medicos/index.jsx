@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import {getAll} from "../../../services/doctors_service"
+import {getAll, add} from "../../../services/doctors_service"
 
 import Ln from "../../UI/Ln"
 import Table from "../../shared/Table"
@@ -15,8 +15,38 @@ function Medicos(){
     const [notification, setNotification] = useState(null);
     const [openForm, setOpenForm] = useState(false);
 
-    async function submit(){
-        
+    async function submit(e){
+        e.preventDefault();
+
+        const data = {
+            nome: name,
+            CRM: crm,
+            UFCRM: ufcrm
+        };
+
+        const res = await add(data);
+
+        if(res.status != 200){
+            setNotification({
+                title: "Erro",
+                message: res.data.msg,
+                type: 2
+            });
+
+            return;
+        }
+
+        const doctors = await getAll();
+        setDoctors(doctors.data);
+
+        setName("");
+        setCrm("");
+        setUfcrm("");
+        setNotification({
+            title: "Sucesso",
+            message: res.data.msg,
+            type: 1
+        });
     }
 
     async function init(){
