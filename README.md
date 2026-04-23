@@ -233,7 +233,7 @@ A configuração do docker foi feita utilizando um docker-compose para orquestra
 de cada parte.
 
 
-## `docker-compos.yml`
+## `docker-compose.yml`
 
 `mysql`:
 
@@ -253,9 +253,25 @@ A configuração das variáveis de ambientes são definidas em environment.
 ---
 
 `backendphp`:
+
 Configurado para rodar na porta 8000.
 
+Devido ao funcionamento padrão de arquivos do backend php no container,
+foi preciso configurar o apache pelo arquivo .htaccess com `mod_rewrite` para redirecionar as requisições para o index.php.
 
+`app`:
+
+Configurado para rodar na porta 5173.
+
+## 🚀 Executando o docker
+
+Na raíz no projeto execute o seguinte comando:
+```
+docker compose up --build
+```
+
+Após o build os containers estrão prontos para uso e a aplicação poderá 
+ser acessada normalmente.
 
 
 
