@@ -20,7 +20,7 @@ class MedicoController{
             http_response_code(505);
             echo json_encode([
                 "msg" => "Erro ao obter medicos",
-                "err" => $err.getMessage()
+                "err" => $err->getMessage()
             ]);
             return;
         }
@@ -45,7 +45,7 @@ class MedicoController{
             http_response_code(505);
             echo json_encode([
                 "msg" => "Erro ao obter medicos",
-                "err" => $err.getMessage()
+                "err" => $err->getMessage()
             ]);
             return;
         }
