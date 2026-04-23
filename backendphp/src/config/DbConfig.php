@@ -1,7 +1,7 @@
 <?php
 
 class DbConfig{
-    private $host = "localhost";
+    private $host = "mysql";
     private $name = "aplis";
     private $user = "root";
     private $pass = "root";

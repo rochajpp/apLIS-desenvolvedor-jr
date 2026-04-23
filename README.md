@@ -142,6 +142,9 @@ cd backendphp    # Para acessar a pasta do servidor
 php -S localhost:8000    # Para iniciar o servidor na porta 8000
 ```
 
+Obs: Caso for rodar localmente sem a utilização do docker, é preciso que faça a alteração do
+host do banco de dados em `DbConfig.php` de `mysql` para `localhost`
+
 ## 🟢 Backend Node.js
 
 Configurar o .env do servidor:
@@ -221,6 +224,40 @@ Body:
     "cpf": "123.456.789-09",
 }
 ```
+
+<br />
+<br />
+
+# 🐋 Docker
+A configuração do docker foi feita utilizando um docker-compose para orquestrar od Dockerfiles
+de cada parte.
+
+
+## `docker-compos.yml`
+
+`mysql`:
+
+O mysql foi configurado no docker para rodar na porta 3308 para não haver conflitos
+com o banco local.
+
+Também foi configurado a execução de db.sql para que seja criado as tabelas no banco na primeira
+inicialização do container.
+
+---
+
+`backendjs`:
+
+Configurado para rodar na porta 3001.
+A configuração das variáveis de ambientes são definidas em environment.
+
+---
+
+`backendphp`:
+Configurado para rodar na porta 8000.
+
+
+
+
 
 <br />
 <br />
