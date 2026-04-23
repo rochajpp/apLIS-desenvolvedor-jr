@@ -10,6 +10,7 @@ function App() {
     <>
       <Router>
         <Routes>
+          {/* Definindo layout de páginas dentro do componente */}
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/medicos" element={<Medicos />} />
