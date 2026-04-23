@@ -16,9 +16,32 @@ function Pacientes() {
     const [patients, setPatients] = useState([]);
     const [notification, setNotification] = useState(null);
 
+    function cpfFormat(value) {
+        value = value.replace(/\D/g, ""); // Removendo caracteres que não são números
+        value = value.slice(0, 11); // Limitando para 11 dígitos
+
+
+        // Aplicando máscara de CPF
+        value = value.replace(/(\d{3})(\d)/, "$1.$2");
+        value = value.replace(/(\d{3})(\d)/, "$1.$2");
+        value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+        return value;
+    }
+
 
     async function submit(e) {
         e.preventDefault();
+
+        if(cpf.length < 11){
+            setNotification({
+                title: "Erro",
+                message: "CPF inválido",
+                type: 2
+            });
+
+            return;
+        }
 
         const data = {
             nome: name,
@@ -65,7 +88,7 @@ function Pacientes() {
 
     return (
         <section className={styles.main}>
-            {notification && <Notification title={notification.title} message={notification.message} type={notification.type} onClose={() => setNotification(null)}/>}
+            {notification && <Notification title={notification.title} message={notification.message} type={notification.type} onClose={() => setNotification(null)} />}
             <div className={styles.container}>
                 <div className={styles.header}>
                     <h1>Pacientes</h1>
@@ -93,7 +116,7 @@ function Pacientes() {
 
                                 <div className={styles.inputArea}>
                                     <label>CPF:</label>
-                                    <input value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="Insira o CPF do paciente" required />
+                                    <input value={cpf} onChange={(e) => setCpf(cpfFormat(e.target.value))} placeholder="Insira o CPF do paciente" required />
                                 </div>
                             </div>
 
