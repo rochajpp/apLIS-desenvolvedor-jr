@@ -90,8 +90,7 @@ db.sql
 <br />
 <br />
 
-#
- Como rodar o projetor
+# Como rodar o projetor
 
 ## Banco de dados
 ```
@@ -110,9 +109,9 @@ php -S localhost:8000
 
 ## Backend Node.js
 ```
-    cd backendjs
-    npm install
-    node index.js
+cd backendjs
+npm install
+node index.js
 ```
 
 ### .env
