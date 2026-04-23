@@ -236,5 +236,7 @@ Body:
 
 # 👨‍💻Autor
 João Paulo Rocha
+
 GitHub: @rochajpp
+
 LinkedIn: https://www.linkedin.com/in/jo%C3%A3o-paulo-medeiros-rocha-75445820b/
